@@ -42,6 +42,8 @@ Một số hệ thống con: BankSystem, PrintService, ProjectManagementDatabase
       + Đây là hệ thống quản lý bảng lương của nhân viên.
       + PayrollSystem có mối quan hệ 0..* với EmployeePayment, nghĩa là PayrollSystem có thể xử lý nhiều thông tin thanh toán của nhân viên hoặc không có thông tin nào.
       + PayrollSystem có mối quan hệ "processes" với EmployeePayment, thực hiện xử lý các thông tin thanh toán.
+   
+- Hệ thống con: PrintService
     
 ![](https://www.planttext.com/api/plantuml/png/j59BJiCm4Dtx52El0FK3swYAAc3JNQMUm766Ok7OmJC6MOYJiU18N04dQQX8OLblHZFpFgCdVtryhebLuDXOGK_6GV24Gbj515kLWhVspZlkAWPOhVHFKvRm9Y2_vJBWSqJYZ2ThMl4k3WARRJ2ETnXUZCPCpWs61wMnB0Sgj1tWmBl0fhK-8Mxg0dQSD_iPaB8gf0BkVQmipg36Ecestj4ukopWrdkBoXsD9xuKAqh4s9pTTr3CbkZOSEepojlJ9EVpSX9F0J8IaXI_nnrmYkjpL9e9NWq_od_ansCoGGTKt6cFCtaZUuoyNYokvAa13GbX3LNwIt_AFrhjqUNRUhCrkhhxLzy0003__mC0)
   - Giải thích:
