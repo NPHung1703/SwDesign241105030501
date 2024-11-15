@@ -5,6 +5,7 @@ Một số hệ thống con: BankSystem, PrintService, ProjectManagementDatabase
     
 ![](https://www.planttext.com/api/plantuml/png/l59BJiCm4Dtx52El0FK3swYAgbAGs22adi1nfX3LiIFFM10XJiQ28t459arQsW9Rl1ZRC-_DUnhxy_rZJcmYfzefsbGUOY1KrXaYU31j3CvT1y_TZX5cCxk_vFch0bdJQHE3HIA1r-XPlQc1VxSmVhDgYR4MPkKPuzfOt161e_6qndYRV4bdnjgGFD-dki2OmOfZvHz7OEekcy4ofCBXg2SPorNmIyCe1Odd6In2S6Zyj_gHEAM2-hEOVMdp7Fx5mqtTkD0Y3gCH8n8hxlK5zNF2ut5-DBSCT28ahGwJ7UWOinskE29uhlX9_z7ur4xNl2d5k_G_hNNueSk13C7ms5X2qUvr1eI-qbkUlfnCBlHlSZks2CxHbzsl-m800F__0m00)
   - Giải thích:
+
     1.PayrollController: Là thành phần điều khiển (controller) có trách nhiệm thực thi phương thức processPayment, bắt đầu quá trình thanh toán lương.
 
     2.IBankSystem: Đây là một giao diện (interface) định nghĩa phương thức transferFunds, nhận các tham số gồm accountNumber, amount, và transactionDate, trả về giá trị Boolean để xác nhận việc chuyển khoản có         thành công hay không.
