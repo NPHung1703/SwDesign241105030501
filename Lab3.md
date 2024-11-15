@@ -54,6 +54,7 @@ Một số hệ thống con: BankSystem, PrintService, ProjectManagementDatabase
 
       + Employee: Đại diện cho một nhân viên trong hệ thống, có thể tham gia vào nhiều dự án khác nhau.
       + Project: Đại diện cho một dự án mà nhân viên có thể được giao, có thể có nhiều nhân viên tham gia.
+        
     6.EmployeePayment: Đây là thực thể quản lý thông tin thanh toán cho nhân viên. PayrollController có thể cập nhật thông tin thanh toán dựa trên số giờ làm việc trên các dự án.
 
     
