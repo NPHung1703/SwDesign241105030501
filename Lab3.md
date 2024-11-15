@@ -90,6 +90,8 @@ Một số hệ thống con: BankSystem, PrintService, ProjectManagementDatabase
   - Giải thích:
 
     Đây là một biểu đồ UML mô tả hệ thống quản lý dự án cho nhân viên, thể hiện các thành phần chính và mối quan hệ giữa chúng trong việc truy xuất và cập nhật dữ liệu dự án của nhân viên.
+    
+    Hệ thống này bao gồm các thành phần chính như sau:
 
     1.Subsystem (Hệ thống con):
 
