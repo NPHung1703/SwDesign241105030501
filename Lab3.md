@@ -18,9 +18,22 @@ Một số hệ thống con: BankSystem, PrintService, ProjectManagementDatabase
   - Hệ thống con PrintService
     
 ![](https://www.planttext.com/api/plantuml/png/j59BJiCm4Dtx52El0FK3swYAAc3JNQMUm766Ok7OmJC6MOYJiU18N04dQQX8OLblHZFpFgCdVtryhebLuDXOGK_6GV24Gbj515kLWhVspZlkAWPOhVHFKvRm9Y2_vJBWSqJYZ2ThMl4k3WARRJ2ETnXUZCPCpWs61wMnB0Sgj1tWmBl0fhK-8Mxg0dQSD_iPaB8gf0BkVQmipg36Ecestj4ukopWrdkBoXsD9xuKAqh4s9pTTr3CbkZOSEepojlJ9EVpSX9F0J8IaXI_nnrmYkjpL9e9NWq_od_ansCoGGTKt6cFCtaZUuoyNYokvAa13GbX3LNwIt_AFrhjqUNRUhCrkhhxLzy0003__mC0)
+  - Giải thích:
+
+    1.PayrollController: Đây là thành phần điều khiển (controller), có trách nhiệm thực thi phương thức requestPayslip, bắt đầu quy trình tạo phiếu lương.
+
+    2.IPintService: Là một giao diện (interface) định nghĩa phương thức printPayslip, nhận các tham số gồm employeeId, salary, và deductions, trả về giá trị Boolean để xác nhận việc in phiếu lương có thành công       hay không. PayrollController sẽ sử dụng giao diện này để in phiếu lương cho nhân viên.
+
+    3.PrintService: Là một hệ thống con thực thi giao diện IPrintService và thực hiện phương thức printPayslip. Nó đóng vai trò là dịch vụ in ấn thực tế tương tác với hệ thống để in phiếu lương cho nhân viên.
+
+    4.Payslip: Là một thực thể (entity) đại diện cho phiếu lương của nhân viên, bao gồm thông tin về lương, các khoản khấu trừ, v.v. PayrollController sẽ tạo ra phiếu lương này khi xử lý yêu cầu.
   - Hệ thống con ProhectManagementDatabase subsystems
 
 ![](https://www.planttext.com/api/plantuml/png/r5FBJiCm4BpdArOv0Q8jvwYAAYWIFI1Lui25ozPPqX37ZhoEK8NuCWvy4h-0RP8GzH5n9PSaipEUcTZv-lXSi4LZcqf6N1OAZ6QAX4HcMEFEQ2bljBB-JWRcSz6_f2cyHU2ksImdUrlLKk-8raQ_aB1BjDWEcpf3s-5tkZ4SlKUjmwg5xr5XJXMf8DmWaxCgb2NpZ89w9t160uCpQarNMG8FrXGgFqzWFm4S1ZWYl8JwXp24jfxyg4r93bpgPYF96LnhBGdLRulJ9Vv3R1UoXxfTF8Rrz2S_EpmRaqawjfy9n0qJnz48noynka8u4YWimsjXj_6957qBfq0XY8FlEDTDlLc86JwyK-mtZw-cquiuoDh7RkADc8jS_Karp6TTdTAf5gGo_mz-0m00__y30000)
+  - Giải thích:
+
+    
+  
 # Analysis class to design element map
 |  Analysis Class | Design Element |  
 |-----------------|----------------|
