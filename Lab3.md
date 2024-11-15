@@ -50,13 +50,38 @@ Một số hệ thống con: BankSystem, PrintService, ProjectManagementDatabase
 
     Đây là một biểu đồ UML cho hệ thống in phiếu lương, mô tả các thành phần liên quan và mối quan hệ giữa chúng trong quá trình tạo và in phiếu lương.
 
-    1.PayrollController: Đây là thành phần điều khiển (controller), có trách nhiệm thực thi phương thức requestPayslip, bắt đầu quy trình tạo phiếu lương.
+    Hệ thống này bao gồm các thành phần chính như sau:
 
-    2.IPintService: Là một giao diện (interface) định nghĩa phương thức printPayslip, nhận các tham số gồm employeeId, salary, và deductions, trả về giá trị Boolean để xác nhận việc in phiếu lương có thành công        hay không. PayrollController sẽ sử dụng giao diện này để in phiếu lương cho nhân viên.
+    1.PayrollController:
 
-    3.PrintService: Là một hệ thống con thực thi giao diện IPrintService và thực hiện phương thức printPayslip. Nó đóng vai trò là dịch vụ in ấn thực tế tương tác với hệ thống để in phiếu lương cho nhân viên.
+      + Đây là thành phần controller có nhiệm vụ xử lý yêu cầu requestPayslip.
+      + PayrollController sử dụng interface IPrintService để in phiếu lương (payslip).
+        
+    2.IPrintService (Interface):
 
-    4.Payslip: Là một thực thể (entity) đại diện cho phiếu lương của nhân viên, bao gồm thông tin về lương, các khoản khấu trừ, v.v. PayrollController sẽ tạo ra phiếu lương này khi xử lý yêu cầu.
+      + Đây là một interface cho dịch vụ in ấn, cung cấp phương thức printPayslip với các tham số:
+        
+        employeeId (kiểu String): Mã định danh của nhân viên.
+        
+        salary (kiểu Double): Mức lương của nhân viên.
+
+        deductions (kiểu Double): Số tiền trừ vào lương.
+        
+      + Phương thức printPayslip trả về kiểu Boolean để xác định quá trình in có thành công hay không.
+      + PayrollController sử dụng IPrintService để thực hiện in phiếu lương cho nhân viên.
+        
+    3.PrintService (Subsystem):
+
+      + Đây là hệ thống con thực hiện chức năng in ấn thực tế và đóng vai trò như một subsystem.
+      + PrintService có phương thức printPayslip tương tự như trong IPrintService.
+      + IPrintService tương tác với PrintService để thực hiện chức năng in ấn.
+        
+    4.Payslip (Entity):
+
+      + Đây là entity đại diện cho phiếu lương của nhân viên.
+      + PayrollController tạo và tạo ra đối tượng Payslip trong quá trình xử lý yêu cầu in phiếu lương.
+      + Payslip có mối quan hệ 0..* với PrintService, nghĩa là một phiếu lương có thể được in nhiều lần hoặc không in lần nào.
+
   - Hệ thống con ProhectManagementDatabase subsystems
 
 ![](https://www.planttext.com/api/plantuml/png/r5FBJiCm4BpdArOv0Q8jvwYAAYWIFI1Lui25ozPPqX37ZhoEK8NuCWvy4h-0RP8GzH5n9PSaipEUcTZv-lXSi4LZcqf6N1OAZ6QAX4HcMEFEQ2bljBB-JWRcSz6_f2cyHU2ksImdUrlLKk-8raQ_aB1BjDWEcpf3s-5tkZ4SlKUjmwg5xr5XJXMf8DmWaxCgb2NpZ89w9t160uCpQarNMG8FrXGgFqzWFm4S1ZWYl8JwXp24jfxyg4r93bpgPYF96LnhBGdLRulJ9Vv3R1UoXxfTF8Rrz2S_EpmRaqawjfy9n0qJnz48noynka8u4YWimsjXj_6957qBfq0XY8FlEDTDlLc86JwyK-mtZw-cquiuoDh7RkADc8jS_Karp6TTdTAf5gGo_mz-0m00__y30000)
