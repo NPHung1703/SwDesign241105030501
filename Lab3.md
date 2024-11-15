@@ -16,9 +16,12 @@ Một số hệ thống con: BankSystem, PrintService, ProjectManagementDatabase
     2.IBankSystem (Interface):
 
       + Đây là một interface cho hệ thống ngân hàng, cung cấp phương thức transferFunds với các tham số:
-        .accountNumber (kiểu String): Số tài khoản ngân hàng.
-        .amount (kiểu Double): Số tiền giao dịch.
-        .transactionDate (kiểu Date): Ngày thực hiện giao dịch.
+        
+        accountNumber (kiểu String): Số tài khoản ngân hàng.
+        
+        amount (kiểu Double): Số tiền giao dịch.
+        
+        transactionDate (kiểu Date): Ngày thực hiện giao dịch.
       + Phương thức transferFunds trả về kết quả kiểu Boolean để xác định giao dịch thành công hay thất bại.
       + PayrollController sử dụng IBankSystem để thực hiện chuyển khoản cho nhân viên.
         
