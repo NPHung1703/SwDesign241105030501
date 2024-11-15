@@ -6,18 +6,39 @@ Một số hệ thống con: BankSystem, PrintService, ProjectManagementDatabase
 ![](https://www.planttext.com/api/plantuml/png/l59BJiCm4Dtx52El0FK3swYAgbAGs22adi1nfX3LiIFFM10XJiQ28t459arQsW9Rl1ZRC-_DUnhxy_rZJcmYfzefsbGUOY1KrXaYU31j3CvT1y_TZX5cCxk_vFch0bdJQHE3HIA1r-XPlQc1VxSmVhDgYR4MPkKPuzfOt161e_6qndYRV4bdnjgGFD-dki2OmOfZvHz7OEekcy4ofCBXg2SPorNmIyCe1Odd6In2S6Zyj_gHEAM2-hEOVMdp7Fx5mqtTkD0Y3gCH8n8hxlK5zNF2ut5-DBSCT28ahGwJ7UWOinskE29uhlX9_z7ur4xNl2d5k_G_hNNueSk13C7ms5X2qUvr1eI-qbkUlfnCBlHlSZks2CxHbzsl-m800F__0m00)
   - Giải thích:
 
-    Đây là một biểu đồ UML cho hệ thống quản lý lương, trong đó các thành phần tương tác với nhau để thực hiện quy trình thanh toán lương qua hệ thống ngân hàng.
+    Hệ thống này bao gồm các thành phần chính như sau:
 
-    1.PayrollController: Là thành phần điều khiển (controller) có trách nhiệm thực thi phương thức processPayment, bắt đầu quá trình thanh toán lương.
+    1.PayrollController:
 
-    2.IBankSystem: Đây là một giao diện (interface) định nghĩa phương thức transferFunds, nhận các tham số gồm accountNumber, amount, và transactionDate, trả về giá trị Boolean để xác nhận việc chuyển khoản có         thành công hay không.
+      + Đây là thành phần controller có chức năng chính là thực hiện phương thức processPayment.
+      + PayrollController sử dụng interface IBankSystem để xử lý các giao dịch liên quan đến ngân hàng.
+        
+    2.IBankSystem (Interface):
 
-    3.BankSystem: Là một proxy (đại diện) cho hệ thống ngân hàng thực tế. Nó triển khai giao diện IBankSystem và thực hiện phương thức transferFunds. PayrollController tương tác gián tiếp với hệ thống ngân hàng        qua IBankSystem, giúp hệ thống có thể thay đổi mà không ảnh hưởng đến các thành phần khác.
+      + Đây là một interface cho hệ thống ngân hàng, cung cấp phương thức transferFunds với các tham số:
+        .accountNumber (kiểu String): Số tài khoản ngân hàng.
+        .amount (kiểu Double): Số tiền giao dịch.
+        .transactionDate (kiểu Date): Ngày thực hiện giao dịch.
+      + Phương thức transferFunds trả về kết quả kiểu Boolean để xác định giao dịch thành công hay thất bại.
+      + PayrollController sử dụng IBankSystem để thực hiện chuyển khoản cho nhân viên.
+        
+    3.BankSystem (Subsystem Proxy):
 
-    4.EmployeePayment: Là một thực thể (entity) đại diện cho dữ liệu thanh toán của nhân viên, như thông tin về số tiền cần thanh toán. PayrollController cập nhật trạng thái của EmployeePayment khi thực hiện           thanh toán.
+      + Đây là hệ thống con thực sự thực hiện giao dịch ngân hàng và đóng vai trò như một proxy.
+      + BankSystem cũng có phương thức transferFunds tương tự như trong IBankSystem.
+      + IBankSystem tương tác với BankSystem để thực hiện các giao dịch thực tế.
+        
+    4.EmployeePayment (Entity):
 
-    5.PayrollSystem: Là thành phần xử lý chính trong hệ thống, có mối quan hệ một-nhiều với EmployeePayment, nghĩa là một hệ thống lương có thể xử lý nhiều thanh toán cho nhân viên khác nhau.
-  - Hệ thống con PrintService
+      + Đây là entity đại diện cho thông tin thanh toán của nhân viên.
+      + PayrollController cập nhật thông tin của EmployeePayment trong quá trình xử lý thanh toán.
+      + EmployeePayment được PayrollSystem xử lý.
+
+    5.PayrollSystem:
+
+      + Đây là hệ thống quản lý bảng lương của nhân viên.
+      + PayrollSystem có mối quan hệ 0..* với EmployeePayment, nghĩa là PayrollSystem có thể xử lý nhiều thông tin thanh toán của nhân viên hoặc không có thông tin nào.
+      + PayrollSystem có mối quan hệ "processes" với EmployeePayment, thực hiện xử lý các thông tin thanh toán.
     
 ![](https://www.planttext.com/api/plantuml/png/j59BJiCm4Dtx52El0FK3swYAAc3JNQMUm766Ok7OmJC6MOYJiU18N04dQQX8OLblHZFpFgCdVtryhebLuDXOGK_6GV24Gbj515kLWhVspZlkAWPOhVHFKvRm9Y2_vJBWSqJYZ2ThMl4k3WARRJ2ETnXUZCPCpWs61wMnB0Sgj1tWmBl0fhK-8Mxg0dQSD_iPaB8gf0BkVQmipg36Ecestj4ukopWrdkBoXsD9xuKAqh4s9pTTr3CbkZOSEepojlJ9EVpSX9F0J8IaXI_nnrmYkjpL9e9NWq_od_ansCoGGTKt6cFCtaZUuoyNYokvAa13GbX3LNwIt_AFrhjqUNRUhCrkhhxLzy0003__mC0)
   - Giải thích:
