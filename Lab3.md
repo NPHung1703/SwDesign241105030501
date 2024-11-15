@@ -5,6 +5,8 @@ Một số hệ thống con: BankSystem, PrintService, ProjectManagementDatabase
     
 ![](https://www.planttext.com/api/plantuml/png/l59BJiCm4Dtx52El0FK3swYAgbAGs22adi1nfX3LiIFFM10XJiQ28t459arQsW9Rl1ZRC-_DUnhxy_rZJcmYfzefsbGUOY1KrXaYU31j3CvT1y_TZX5cCxk_vFch0bdJQHE3HIA1r-XPlQc1VxSmVhDgYR4MPkKPuzfOt161e_6qndYRV4bdnjgGFD-dki2OmOfZvHz7OEekcy4ofCBXg2SPorNmIyCe1Odd6In2S6Zyj_gHEAM2-hEOVMdp7Fx5mqtTkD0Y3gCH8n8hxlK5zNF2ut5-DBSCT28ahGwJ7UWOinskE29uhlX9_z7ur4xNl2d5k_G_hNNueSk13C7ms5X2qUvr1eI-qbkUlfnCBlHlSZks2CxHbzsl-m800F__0m00)
   - Giải thích:
+    
+    Đây là một biểu đồ UML cho hệ thống quản lý lương, trong đó các thành phần tương tác với nhau để thực hiện quy trình thanh toán lương qua hệ thống ngân hàng. 
 
     Hệ thống này bao gồm các thành phần chính như sau:
 
