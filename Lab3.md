@@ -6,6 +6,8 @@ Một số hệ thống con: BankSystem, PrintService, ProjectManagementDatabase
 ![](https://www.planttext.com/api/plantuml/png/l59BJiCm4Dtx52El0FK3swYAgbAGs22adi1nfX3LiIFFM10XJiQ28t459arQsW9Rl1ZRC-_DUnhxy_rZJcmYfzefsbGUOY1KrXaYU31j3CvT1y_TZX5cCxk_vFch0bdJQHE3HIA1r-XPlQc1VxSmVhDgYR4MPkKPuzfOt161e_6qndYRV4bdnjgGFD-dki2OmOfZvHz7OEekcy4ofCBXg2SPorNmIyCe1Odd6In2S6Zyj_gHEAM2-hEOVMdp7Fx5mqtTkD0Y3gCH8n8hxlK5zNF2ut5-DBSCT28ahGwJ7UWOinskE29uhlX9_z7ur4xNl2d5k_G_hNNueSk13C7ms5X2qUvr1eI-qbkUlfnCBlHlSZks2CxHbzsl-m800F__0m00)
   - Giải thích:
 
+    Đây là một biểu đồ UML cho hệ thống quản lý lương, trong đó các thành phần tương tác với nhau để thực hiện quy trình thanh toán lương qua hệ thống ngân hàng.
+
     1.PayrollController: Là thành phần điều khiển (controller) có trách nhiệm thực thi phương thức processPayment, bắt đầu quá trình thanh toán lương.
 
     2.IBankSystem: Đây là một giao diện (interface) định nghĩa phương thức transferFunds, nhận các tham số gồm accountNumber, amount, và transactionDate, trả về giá trị Boolean để xác nhận việc chuyển khoản có         thành công hay không.
@@ -20,6 +22,8 @@ Một số hệ thống con: BankSystem, PrintService, ProjectManagementDatabase
 ![](https://www.planttext.com/api/plantuml/png/j59BJiCm4Dtx52El0FK3swYAAc3JNQMUm766Ok7OmJC6MOYJiU18N04dQQX8OLblHZFpFgCdVtryhebLuDXOGK_6GV24Gbj515kLWhVspZlkAWPOhVHFKvRm9Y2_vJBWSqJYZ2ThMl4k3WARRJ2ETnXUZCPCpWs61wMnB0Sgj1tWmBl0fhK-8Mxg0dQSD_iPaB8gf0BkVQmipg36Ecestj4ukopWrdkBoXsD9xuKAqh4s9pTTr3CbkZOSEepojlJ9EVpSX9F0J8IaXI_nnrmYkjpL9e9NWq_od_ansCoGGTKt6cFCtaZUuoyNYokvAa13GbX3LNwIt_AFrhjqUNRUhCrkhhxLzy0003__mC0)
   - Giải thích:
 
+    Đây là một biểu đồ UML cho hệ thống in phiếu lương, mô tả các thành phần liên quan và mối quan hệ giữa chúng trong quá trình tạo và in phiếu lương.
+
     1.PayrollController: Đây là thành phần điều khiển (controller), có trách nhiệm thực thi phương thức requestPayslip, bắt đầu quy trình tạo phiếu lương.
 
     2.IPintService: Là một giao diện (interface) định nghĩa phương thức printPayslip, nhận các tham số gồm employeeId, salary, và deductions, trả về giá trị Boolean để xác nhận việc in phiếu lương có thành công        hay không. PayrollController sẽ sử dụng giao diện này để in phiếu lương cho nhân viên.
@@ -31,6 +35,26 @@ Một số hệ thống con: BankSystem, PrintService, ProjectManagementDatabase
 
 ![](https://www.planttext.com/api/plantuml/png/r5FBJiCm4BpdArOv0Q8jvwYAAYWIFI1Lui25ozPPqX37ZhoEK8NuCWvy4h-0RP8GzH5n9PSaipEUcTZv-lXSi4LZcqf6N1OAZ6QAX4HcMEFEQ2bljBB-JWRcSz6_f2cyHU2ksImdUrlLKk-8raQ_aB1BjDWEcpf3s-5tkZ4SlKUjmwg5xr5XJXMf8DmWaxCgb2NpZ89w9t160uCpQarNMG8FrXGgFqzWFm4S1ZWYl8JwXp24jfxyg4r93bpgPYF96LnhBGdLRulJ9Vv3R1UoXxfTF8Rrz2S_EpmRaqawjfy9n0qJnz48noynka8u4YWimsjXj_6957qBfq0XY8FlEDTDlLc86JwyK-mtZw-cquiuoDh7RkADc8jS_Karp6TTdTAf5gGo_mz-0m00__y30000)
   - Giải thích:
+
+    Đây là một biểu đồ UML mô tả hệ thống quản lý dự án cho nhân viên, thể hiện các thành phần chính và mối quan hệ giữa chúng trong việc truy xuất và cập nhật dữ liệu dự án của nhân viên.
+
+    1.PayrollController: Đây là thành phần điều khiển (controller), có nhiệm vụ xử lý hai chức năng chính: getEmployeeProjectData để truy xuất dữ liệu dự án của nhân viên và updateProjectHours để cập nhật số giờ       làm việc của nhân viên trong một dự án.
+
+    2.IProjectManagementDatabase: Là giao diện (interface) định nghĩa hai phương thức:
+
+      + getProjectData(employeeId: String): ProjectData: Truy xuất dữ liệu dự án dựa trên mã nhân viên.
+      + updateProjectHours(employeeId: String, projectId: String, hoursWorked: Double): Boolean: Cập nhật số giờ làm việc của nhân viên trong một dự án cụ thể.
+      PayrollController sử dụng giao diện này để truy cập và cập nhật thông tin dự án của nhân viên.
+
+    3.ProjectManagementDatabase: Là hệ thống quản lý dự án thực tế, triển khai giao diện IProjectManagementDatabase để thực hiện các chức năng truy xuất và cập nhật dữ liệu dự án.
+
+    4.EmployeeProject: Là một thực thể liên kết giữa Employee (nhân viên) và Project (dự án), giúp quản lý mối quan hệ giữa các nhân viên và các dự án mà họ tham gia.
+
+    5.Employee và Project:
+
+      + Employee: Đại diện cho một nhân viên trong hệ thống, có thể tham gia vào nhiều dự án khác nhau.
+      + Project: Đại diện cho một dự án mà nhân viên có thể được giao, có thể có nhiều nhân viên tham gia.
+    6.EmployeePayment: Đây là thực thể quản lý thông tin thanh toán cho nhân viên. PayrollController có thể cập nhật thông tin thanh toán dựa trên số giờ làm việc trên các dự án.
 
     
   
