@@ -91,25 +91,30 @@ Một số hệ thống con: BankSystem, PrintService, ProjectManagementDatabase
 
     Đây là một biểu đồ UML mô tả hệ thống quản lý dự án cho nhân viên, thể hiện các thành phần chính và mối quan hệ giữa chúng trong việc truy xuất và cập nhật dữ liệu dự án của nhân viên.
 
-    1.PayrollController: Đây là thành phần điều khiển (controller), có nhiệm vụ xử lý hai chức năng chính: getEmployeeProjectData để truy xuất dữ liệu dự án của nhân viên và updateProjectHours để cập nhật số giờ       làm việc của nhân viên trong một dự án.
+    1.Subsystem (Hệ thống con):
 
-    2.IProjectManagementDatabase: Là giao diện (interface) định nghĩa hai phương thức:
-
-      + getProjectData(employeeId: String): ProjectData: Truy xuất dữ liệu dự án dựa trên mã nhân viên.
-      + updateProjectHours(employeeId: String, projectId: String, hoursWorked: Double): Boolean: Cập nhật số giờ làm việc của nhân viên trong một dự án cụ thể.
+      + PayrollController: Là bộ điều khiển chính (controller) của hệ thống, có trách nhiệm quản lý các chức năng liên quan đến bảng lương. Nó thực hiện các chức năng như getEmployeeProjectData (lấy dữ liệu dự          án của nhân viên) và updateProjectHours (cập nhật giờ làm việc của nhân viên trong dự án).
         
-      PayrollController sử dụng giao diện này để truy cập và cập nhật thông tin dự án của nhân viên.
+    2.Interface (Giao diện hệ thống con):
 
-    3.ProjectManagementDatabase: Là hệ thống quản lý dự án thực tế, triển khai giao diện IProjectManagementDatabase để thực hiện các chức năng truy xuất và cập nhật dữ liệu dự án.
-
-    4.EmployeeProject: Là một thực thể liên kết giữa Employee (nhân viên) và Project (dự án), giúp quản lý mối quan hệ giữa các nhân viên và các dự án mà họ tham gia.
-
-    5.Employee và Project:
-
-      + Employee: Đại diện cho một nhân viên trong hệ thống, có thể tham gia vào nhiều dự án khác nhau.
-      + Project: Đại diện cho một dự án mà nhân viên có thể được giao, có thể có nhiều nhân viên tham gia.
+      + IProjectManagementDatabase: Là giao diện chính giữa bộ điều khiển PayrollController và cơ sở dữ liệu quản lý dự án. Giao diện này định nghĩa các chức năng:
         
-    6.EmployeePayment: Đây là thực thể quản lý thông tin thanh toán cho nhân viên. PayrollController có thể cập nhật thông tin thanh toán dựa trên số giờ làm việc trên các dự án.
+        getProjectData(employeeId: String): ProjectData: Lấy dữ liệu dự án cho một nhân viên cụ thể dựa trên ID của họ.
+        
+        updateProjectHours(employeeId: String, projectId: String, hoursWorked: Double): Boolean: Cập nhật giờ làm việc của nhân viên cho một dự án cụ thể.
+        
+    3.Các lớp khác trong hệ thống:
+
+      + EmployeePayment: Lớp này được cập nhật thông qua hệ thống IProjectManagementDatabase, có thể liên quan đến việc tính toán tiền lương dựa trên giờ làm việc.
+      + EmployeeProject: Lớp này đại diện cho mối quan hệ giữa Employee (nhân viên) và Project (dự án). Một nhân viên có thể tham gia vào nhiều dự án (mối quan hệ 0..* giữa Employee và Project), và một dự án            cũng có thể có nhiều nhân viên tham gia.
+      + Employee: Đại diện cho nhân viên trong hệ thống.
+      + Project: Đại diện cho dự án trong hệ thống.
+        
+    4.Interaction (Tương tác):
+
+      + PayrollController: Sử dụng giao diện IProjectManagementDatabase để truy cập vào dữ liệu dự án, cập nhật giờ làm việc và các thông tin khác.
+      + EmployeePayment: Được cập nhật thông qua các dữ liệu từ ProjectManagementDatabase.
+      + ProjectManagementDatabase: Là cơ sở dữ liệu quản lý dự án, tương tác với các chức năng trong giao diện IProjectManagementDatabase.
 
     
   
