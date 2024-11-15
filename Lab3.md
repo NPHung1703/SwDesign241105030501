@@ -44,6 +44,7 @@ Một số hệ thống con: BankSystem, PrintService, ProjectManagementDatabase
 
       + getProjectData(employeeId: String): ProjectData: Truy xuất dữ liệu dự án dựa trên mã nhân viên.
       + updateProjectHours(employeeId: String, projectId: String, hoursWorked: Double): Boolean: Cập nhật số giờ làm việc của nhân viên trong một dự án cụ thể.
+        
       PayrollController sử dụng giao diện này để truy cập và cập nhật thông tin dự án của nhân viên.
 
     3.ProjectManagementDatabase: Là hệ thống quản lý dự án thực tế, triển khai giao diện IProjectManagementDatabase để thực hiện các chức năng truy xuất và cập nhật dữ liệu dự án.
