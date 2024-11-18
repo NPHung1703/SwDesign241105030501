@@ -1,7 +1,9 @@
  Biểu đồ tuần tự (Sequence Diagram) mô tả luồng hoạt động cơ bản của trường hợp sử dụng đăng nhập (Login - Basic Flow).
 
  Các thành phần chính:
+
 Actor (Người dùng):
+
 "Any User" đại diện cho người dùng (Actor) của hệ thống, là đối tượng thực hiện hành động đăng nhập.
 Object (Đối tượng):
 "LoginForm" là đối tượng trong hệ thống, cụ thể ở đây là giao diện hoặc module xử lý đăng nhập.
