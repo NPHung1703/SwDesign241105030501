@@ -1,4 +1,14 @@
- Biểu đồ tuần tự (Sequence Diagram) mô tả luồng hoạt động cơ bản của trường hợp sử dụng đăng nhập (Login - Basic Flow).
+Payroll System Use-Case Analysis Solution
+
+1. Exercise: Use-Case Analysis
+   
+1.1 Use-Case Realization Interaction Diagrams
+
+1.1.1 Login
+
+1.1.1.1 Login - Basic Flow
+
+Biểu đồ tuần tự (Sequence Diagram) mô tả luồng hoạt động cơ bản của trường hợp sử dụng đăng nhập (Login - Basic Flow).
 
  Các thành phần chính:
 
